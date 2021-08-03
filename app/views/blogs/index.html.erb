@@ -1,0 +1,25 @@
+<h1> Showing All Blogs</h1>
+<p>
+  <%= link_to "Create New Blog", new_blog_path %>
+</p>
+<table>
+  <tr>
+    <th> Title</th>
+    <th> Description</th>
+    <th> Action</th>
+  </tr>
+  <% @blogs.each do |article| %>
+    <tr>
+      <td> <%= article.title %></td>
+      <td> <%= article.description %></td>
+      <td> <%= link_to "Show", blog_path(article) %></td>
+      <td> <%= link_to "Edit", edit_blog_path(article) %> </td>
+      <td> <%= link_to "Delete", blog_path(article),
+                       method: :delete,
+                       data: { confirm: "Are you Sure?"} %> </td>
+    </tr>
+  <% end %>
+</table>
+
+<%#= link_to :Delete , method: :delete, model: article_path %>
+
