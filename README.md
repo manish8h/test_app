@@ -10,6 +10,9 @@ Things you may want to cover:
 
 * Ruby version
 
+* Bootstrap setup
+  https://www.youtube.com/watch?v=bn9arlhfaXc
+
 * System dependencies
 
 * Configuration

@@ -12,6 +12,7 @@ gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sass-rails', '>= 6'
+gem 'popper_js', '~> 2.9.2'
 gem 'jquery-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
