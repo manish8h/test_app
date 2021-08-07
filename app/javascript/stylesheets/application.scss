@@ -1,1 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
+
+//logo css
+#logo{
+  float: left;
+  font-size: 2.5em;
+  color: #F7F7F7;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+#logo:hover{
+  color: #BBBBBB;
+  text-decoration: none;
+}
+.nav-link{
+  color: #F7F7F7;
+  font-size: 2em;
+}
+.nav-link:hover{
+  color: #BBBBBB;
+  text-decoration: none;
+}
+.center{
+  text-align: center;
+}

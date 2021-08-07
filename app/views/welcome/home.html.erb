@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Alpha Blog</title>
-</head>
-<body>
+<div class="center jumbotron">
+  <%#= image_tag("img2.jpeg", class: "rounded",width: "1000px", height: "500px") %>
+  <%#= image_tag("img2.jpeg", class: "rounded mx-auto d-block",width: "1000px", height: "500px") %>
+  <%= image_tag("img2.jpeg", width: "1000px", height: "500px") %>
+  <p>All way the up!!!!!!!!!!</p>
+  <%= link_to "Sign up now", "#", class: "btn btn-lg btn-secondary"%>
+</div>
 
-<br>
-<%= link_to('Home', root_path) %> |
-<%= link_to('Articales', articles_path) %> |
-<%= link_to('New Blog', blogs_path) %> |
-<%= link_to('About', welcome_about_path) %> |
-<%= link_to('Search', welcome_about_path) %> |
-<h1>All way the up!!!!!!!!!!</h1>
+<!--<br>-->
+<!--<%#= link_to('Home', root_path) %> |-->
+<!--<%#= link_to('Articales', articles_path) %> |-->
+<!--<%#= link_to('New Blog', blogs_path) %> |-->
+<!--<%#= link_to('About', welcome_about_path) %> |-->
+<!--<%#= link_to('Search', welcome_about_path) %> |-->
 <!--app/assets/images/img2.jpeg-->
-<%#= image_tag("img2.jpeg", option = {width:1400 , height:700}) %>
-</body>
-</html>
+
+<%#= image_tag("img2.jpeg", width: "700px", height: "400px") %>
