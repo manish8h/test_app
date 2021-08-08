@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 //logo css
-#logo{
+#logo {
   float: left;
   font-size: 2.5em;
   color: #F7F7F7;
@@ -9,18 +9,38 @@
   letter-spacing: -1px;
   font-weight: bold;
 }
-#logo:hover{
+
+#logo:hover {
   color: #BBBBBB;
   text-decoration: none;
 }
-.nav-link{
+
+.nav-link {
   color: #F7F7F7;
   font-size: 2em;
 }
-.nav-link:hover{
+
+.nav-link:hover {
   color: #BBBBBB;
   text-decoration: none;
 }
-.center{
+
+.center {
   text-align: center;
+}
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+footer a:hover {
+  color: #222;
+}
+footer small {
+  float: left;
+}
+footer ul {
+  float: right;
 }
