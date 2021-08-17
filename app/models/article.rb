@@ -26,7 +26,7 @@ class Article < ActiveRecord::Base
   # To maintain data integrity we use validation so no invalid data get into DB
   # like title/description can't be nil => bad data
   #
-  validates :title, presence: true, length: {minimum: 3, maximum: 50}
+  validates :title, presence: true, length: {minimum: 3, maximum: 100}
   # validates :description, presence: true, length: {minimum: 10, maximum: 300}
   validates :description, presence: true, length: {minimum: 10, maximum: 10000}
   # a.errors
