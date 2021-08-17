@@ -1,11 +1,26 @@
-<h1> Showing Selected Article</h1>
-<p>
-  Title: <%= @article.title %>
-</p>
-<p>
-  Description: <%= @article.description %>
-</p>
-<%= link_to "Back to Articles" , articles_path %> |
-<%= link_to :Edit , edit_article_path(@article) %>
+<!--<h1> Showing Selected Article</h1>-->
+<!--<p>-->
+<!--  Title: <%#= @article.title %>-->
+<!--</p>-->
+<!--<p>-->
+<!--  Description: <%#= @article.description %>-->
+<!--</p>-->
+<!--<%#= link_to "Back to Articles" , articles_path %> |-->
+<%#= link_to :Edit , edit_article_path(@article) %>
 <%#= link_to :Delete , method: :delete, model: article_path %>
 
+<!--==================-->
+<h2 align="center"><%= @article.title %></h2>
+<div class="well col-sm-8 col-sm-offset-2">
+  <%= simple_format(@article.description, class: "fs-3") %>
+</div>
+<div class="article-action">
+  <div class="col-sm-offset-2 col-sm-8">
+    <%= link_to "View All Articles", articles_path, class: "btn btn-success btn-lg" %>
+    <%= link_to "Delete", article_path(@article),
+                method: :delete,
+                data: { confirm: "Are you Sure?" },
+                class: "btn btn-danger btn-lg" %>
+    <%= link_to :Update, edit_article_path(@article), class: "btn btn-secondary btn-lg" %>
+  </div>
+</div>

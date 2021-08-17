@@ -27,7 +27,8 @@ class Article < ActiveRecord::Base
   # like title/description can't be nil => bad data
   #
   validates :title, presence: true, length: {minimum: 3, maximum: 50}
-  validates :description, presence: true, length: {minimum: 10, maximum: 300}
+  # validates :description, presence: true, length: {minimum: 10, maximum: 300}
+  validates :description, presence: true, length: {minimum: 10, maximum: 10000}
   # a.errors
   # a.errors.full_messages
   # Article.new(description: "Zyx 3nd description").valid? => false
