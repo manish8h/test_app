@@ -4,6 +4,12 @@
       <div class="well">
         <%= link_to article.title, article_path(article), class: "link-success fs-3" %><br>
         <%= truncate(article.description, length: 100) %><br>
+        <div class="article-meta-details">
+          <small> Created by: <%= article.user.username if article.user  %>,
+            <%= time_ago_in_words(article.created_at) %> ago,
+            last updated: <%= time_ago_in_words(article.updated_at) %> ago
+          </small>
+        </div>
         <div class="col-sm-offset-10">
           <%= link_to "Delete", article_path(article),
                       method: :delete,
