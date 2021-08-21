@@ -1,4 +1,5 @@
 class Article < ActiveRecord::Base
+  belongs_to :user
   #create new article=================
 
   # a = Article.new(title: "Second", description: "Azy 2nd description")
@@ -29,6 +30,10 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, length: {minimum: 3, maximum: 100}
   # validates :description, presence: true, length: {minimum: 10, maximum: 300}
   validates :description, presence: true, length: {minimum: 10, maximum: 10000}
+
+  #user id mush be present
+  validates :user_id, presence: true
+
   # a.errors
   # a.errors.full_messages
   # Article.new(description: "Zyx 3nd description").valid? => false
