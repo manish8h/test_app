@@ -23,15 +23,18 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |format|
+    # respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
+        flash[:success] = "Welcome to the Test App #{@user.username}!"
+        # format.html { redirect_to @user, notice: "User was successfully created." }
+        redirect_to articles_path
+        # format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        # format.html { render :new, status: :unprocessable_entity }
+        # format.json { render json: @user.errors, status: :unprocessable_entity }
+        redirect_to signup_path
       end
-    end
+    # end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
@@ -64,6 +67,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :email)
+      params.require(:user).permit(:username, :email, :password)
     end
 end
