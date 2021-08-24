@@ -1,4 +1,5 @@
 <%= render "shared/errors", obj: @user %>
+
 <div class="row">
   <div class="col-xs-12">
     <%= form_for(@user, :html => {class:"form-horizontal", role: "form"}) do |f| %>
@@ -31,6 +32,7 @@
         <div class="col-sm-offset-2 col-sm-10">
           <%= f.submit "Signup", class: "btn btn-secondary btn-lg" %>
           <%= link_to 'Back Users', users_path %>
+          <%= link_to 'View All Articles', articles_path %>
         </div>
       </div>
     <% end %>
