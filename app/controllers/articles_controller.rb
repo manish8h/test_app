@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     # binding.pry
     #hard coded to by pass user id
-    @article.user = User.first
+    @article.user = User.find(2)
 
     if @article.save
       flash[:success] = "Article was successfully created!"
