@@ -4,7 +4,6 @@
   <strong>Username:</strong>
   <%= @user.username %>
 </p>
-
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -12,3 +11,15 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<!--==============-->
+<h2 align="center">Welcome to <%= @user.username %>'s page</h2>
+
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4 center">
+    <%=gravatar_for @user %>
+  </div>
+</div>
+<h4 align="center"><%=@user.username %>'s Articles</h4>
+<%= render "articles/list", obj: @user.articles %>
+
+
