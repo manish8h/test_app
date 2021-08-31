@@ -1,4 +1,9 @@
 <%# @articles.each do |article| %>
+<div class="row">
+  <div class="col-sm-3 col-sm-offset-8">
+    <%= paginate obj, theme: 'twitter-bootstrap-3' %>
+  </div>
+</div>
 <% obj.each do |article| %>
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
@@ -23,3 +28,8 @@
     </div>
   </div>
 <% end %>
+<div class="row">
+  <div class="col-sm-3 col-sm-offset-8">
+    <%= paginate obj, theme: 'twitter-bootstrap-3' %>
+  </div>
+</div>

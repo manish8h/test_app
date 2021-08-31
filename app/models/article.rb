@@ -38,5 +38,5 @@ class Article < ActiveRecord::Base
   # a.errors.full_messages
   # Article.new(description: "Zyx 3nd description").valid? => false
   #
-
+  paginates_per 5
 end

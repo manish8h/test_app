@@ -3,7 +3,8 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit,:update,:show, :destroy]
 
   def index
-    @articles = Article.all
+    # @articles = Article.all
+    @articles = Article.page(params[:page])
   end
 
   def new
@@ -14,9 +15,8 @@ class ArticlesController < ApplicationController
     #to show plain text
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
-    # binding.pry
     #hard coded to by pass user id
-    @article.user = User.find(2)
+    @article.user = User.find(3)
 
     if @article.save
       flash[:success] = "Article was successfully created!"
