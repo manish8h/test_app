@@ -18,4 +18,48 @@ class User < ApplicationRecord
   has_secure_password
   paginates_per 5
 
+  #===============
+  # Callback
+  # https://guides.rubyonrails.org/active_record_callbacks.html
+  # ==============
+
+  # will trigger only for create event validation
+  before_validation :do_it_before_validation, on: :create, if: :should_run
+  # before_validation :do_it_before_validation
+  # after_validation :do_it_after_validation
+  around_create :do_it_around_create
+
+  after_validation do
+    #this run after all validation on all event(:create, :update)
+    #when ur code so short to fit into one line
+    puts("************do_it_after_validation**********")
+  end
+
+  after_initialize do |user|
+    puts("********Initiaze am User Object*************")
+    puts("********#{user}*************")
+  end
+
+  # first found the object and initialize it
+  after_find do |user|
+    puts("********Fond an User Object*************")
+    puts("********#{user}*************")
+  end
+
+
+  private
+  def do_it_before_validation
+    puts("************Before validation**********")
+    self.username.strip!
+  end
+
+  def do_it_around_create
+    puts("************Around Create**********")
+  end
+
+  def should_run
+    puts("************ I will return true **********")
+    true
+  end
+
 end
