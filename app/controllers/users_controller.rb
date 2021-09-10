@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   # GET /users or /users.json
   def index
     # @users = User.all
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
       if @user.update(user_params)
         flash[:success] = "Your Account is updated"
         # format.html { redirect_to @user, notice: "User was successfully updated." }
-        format.html { redirect_to @user}
+        format.html { redirect_to @user }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -72,13 +72,21 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:username, :email, :password)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:username, :email, :password)
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:danger] = "You can edit or delete your profile"
+      redirect_to root_path
     end
+  end
 end

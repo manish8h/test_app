@@ -24,10 +24,10 @@ class User < ApplicationRecord
   # ==============
 
   # will trigger only for create event validation
-  before_validation :do_it_before_validation, on: :create, if: :should_run
+  # before_validation :do_it_before_validation, on: :create, if: :should_run
   # before_validation :do_it_before_validation
   # after_validation :do_it_after_validation
-  around_create :do_it_around_create
+  # around_create :do_it_around_create
 
   after_validation do
     #this run after all validation on all event(:create, :update)

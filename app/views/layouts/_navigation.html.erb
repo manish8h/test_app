@@ -37,7 +37,12 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <%= link_to "Sign up now", signup_path, class: "btn btn-lg btn-secondary"%>
+      <% if logged_in? %>
+        <%= link_to "logout", logout_path, class: "btn btn-lg btn-secondary", method: :delete %>
+      <%else %>
+        <%= link_to "login", login_path, class: "btn btn-lg btn-secondary" %>
+        <%= link_to "Sign up now", signup_path, class: "btn btn-lg btn-secondary"%>
+      <% end %>
     </div>
   </div>
 </nav>
