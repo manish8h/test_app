@@ -36,6 +36,9 @@ class UsersController < ApplicationController
     # ===============
     respond_to do |format|
       if @user.save
+        #signin upon signup
+        session[:user_id] = @user.id
+
         flash[:success] = "Welcome to the Test App #{@user.username}!"
         # format.html { redirect_to @user, notice: "User was successfully created." }
         format.html { redirect_to articles_path }
