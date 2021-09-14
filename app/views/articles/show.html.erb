@@ -27,10 +27,12 @@
 <div class="article-action">
   <div class="col-sm-offset-2 col-sm-8">
     <%= link_to "View All Articles", articles_path, class: "btn btn-success btn-lg" %>
-    <%= link_to "Delete", article_path(@article),
-                method: :delete,
-                data: { confirm: "Are you Sure?" },
-                class: "btn btn-danger btn-lg" %>
-    <%= link_to :Update, edit_article_path(@article), class: "btn btn-secondary btn-lg" %>
+    <% if logged_in? && current_user == @article.user %>
+      <%= link_to "Delete", article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you Sure?" },
+                  class: "btn btn-danger btn-lg" %>
+      <%= link_to :Update, edit_article_path(@article), class: "btn btn-secondary btn-lg" %>
+    <% end %>
   </div>
 </div>

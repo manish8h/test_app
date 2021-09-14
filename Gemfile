@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 
+gem 'rest-client'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

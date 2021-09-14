@@ -38,7 +38,18 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
       <% if logged_in? %>
-        <%= link_to "logout", logout_path, class: "btn btn-lg btn-secondary", method: :delete %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "View Your Profile ", user_path(current_user), class: "dropdown-item" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "logout", logout_path, class: "dropdown-item", method: :delete %></li>
+          </ul>
+        </li>
       <%else %>
         <%= link_to "login", login_path, class: "btn btn-lg btn-secondary" %>
         <%= link_to "Sign up now", signup_path, class: "btn btn-lg btn-secondary"%>
