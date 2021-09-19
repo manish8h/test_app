@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :comments
-  has_many :articles
+  has_many :comments, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
   #don't allow user with same username up or lowercase
   validates :username, presence: true, uniqueness: {case_sensitive: false},
