@@ -16,10 +16,20 @@
 
 <div class="row">
   <div class="col-sm-offset-4 col-sm-4 center">
-    <%=gravatar_for @user %>
+    <%= gravatar_for @user %>
   </div>
+  <% if logged_in? && (current_user == @user || current_user.admin?)%>
+    <div class="col-sm-offset-4 col-sm-4 center">
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-secondary btn-lg" %>
+      <%= link_to 'Delete', user_path(@user),
+                  method: :delete,
+                  data: { confirm: "Are you Sure?" },
+                  class: "btn btn-danger btn-lg"
+      %>
+    </div>
+  <% end %>
 </div>
-<h4 align="center"><%=@user.username %>'s Articles</h4>
+<h4 align="center"><%= @user.username %>'s Articles</h4>
 <%= render "articles/list", obj: @users_articles %>
 
 
